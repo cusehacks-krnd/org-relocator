@@ -93,8 +93,12 @@ const Graph2Component = () => {
   return (
     <div className="flex justify-center w-full p-4">
       <div className="w-3/4 border-2 border-white bg-white rounded-2xl overflow-hidden p-4">
-        <h1 className="text-2xl font-bold text-black mb-4">Service Location Distance Analysis</h1>
-        <h2 className="text-xl text-gray-600">Department to Service Location Connections</h2>
+        <h1 className="text-2xl font-bold text-black mb-4 tracking-[.1em]">
+          Service Location Distance Analysis
+        </h1>
+        <h2 className="text-xl text-gray-600 tracking-wide">
+          Department &nbsp;to &nbsp;Service &nbsp;Location &nbsp;Connections
+        </h2>
         <p>Lines connect departments to service locations. Line color depends on distance.</p>
         <div id="map" style={{ height: "500px", width: "100%" }}></div>
       </div>

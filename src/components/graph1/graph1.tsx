@@ -214,8 +214,12 @@ const Graph1Component = () => {
   return (
     <div className="flex justify-center w-full p-4">
       <div className="w-3/4 border-2 border-white bg-white rounded-2xl overflow-hidden p-4">
-        <h1 className="text-2xl font-bold text-black mb-4">Syracuse Service Request Analysis</h1>
-        <h2 className="text-xl text-gray-600">Syracuse Service Requests Map</h2>
+        <h1 className="text-2xl font-bold text-black mb-4 tracking-[.1em]">
+          Syracuse Service Request Analysis
+        </h1>
+        <h2 className="text-xl text-gray-600 tracking-wide">
+          Syracuse &nbsp;Service &nbsp;Requests &nbsp;Map
+        </h2>
         <p>Click on a marker to see details about the department.</p>
         <div id="map" style={{ height: "500px", width: "100%" }}></div>
       </div>
