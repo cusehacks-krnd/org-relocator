@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo/Brand */}
         <Link href="/" className="text-2xl font-semibold text-[#d37354] tracking-[.25em]">
-          CUSEHACKS
+            CusePULSE 
         </Link>
 
         {/* Navigation Links */}
