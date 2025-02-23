@@ -25,7 +25,7 @@ const Home: React.FC = () => {
             <p className="text-gray-600 mb-8">
               Explore the distribution of citizen service requests across Syracuse to identify high-demand areas.
             </p>
-            <Link href="/graph1" className="block">
+            <Link href="/graph2" className="block">
               <button className="w-full bg-black text-white py-3 rounded-full hover:bg-gray-800 transition">
                 View Map
               </button>
