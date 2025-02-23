@@ -10,6 +10,8 @@ import * as turf from "@turf/turf";
 const Graph2Component = () => {
   const [data, setData] = useState<any[]>([]);
   const [map, setMap] = useState<L.Map | null>(null);
+  const [connections, setConnections] = useState<{ [key: string]: L.Layer[] }>({});
+  const [markers, setMarkers] = useState<L.Marker[]>([]);
 
   useEffect(() => {
     // Initialize the map only once
@@ -48,57 +50,88 @@ const Graph2Component = () => {
           layer.remove();
         }
       });
+
       const buildingIcon = L.icon({
-        iconUrl: "/building-icon.png", 
-        iconSize: [32, 32], 
-        iconAnchor: [16, 32], 
-        popupAnchor: [0, -32], 
+        iconUrl: "/building-icon.png",
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32],
       });
+
       const serviceIcon = L.icon({
-        iconUrl: "/service-icon.png", 
-        iconSize: [32, 32], 
-        iconAnchor: [16, 32], 
-        popupAnchor: [0, -32], 
+        iconUrl: "/service-icon.png",
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32],
       });
+
+      const newConnections: { [key: string]: L.Layer[] } = {};
+      const newMarkers: L.Marker[] = [];
 
       // Add markers and lines for each data point
       data.forEach((row) => {
         if (row.Lat && row.Lng) {
           const departmentLocation = turf.point([row.Lng, row.Lat]);
           const serviceLocation = turf.point([row.LONG, row.LAT]);
-
-          // Calculate the distance between the two points in kilometers
           const distance = turf.distance(departmentLocation, serviceLocation);
 
-          // Define line color based on distance
-          let lineColor = "#00FF00"; // Green for short distances
-          if (distance > 4) lineColor = "#FFA500"; // Orange for medium distances
-          if (distance > 6) lineColor = "#FF0000"; // Red for long distances
+          let lineColor = "#00FF00"; // Green for distances under 3km
+          if (distance > 3) lineColor = "#FFA500"; // Orange for distances 3-4.5km
+          if (distance > 4.5) lineColor = "#FF0000"; // Red for distances over 4.5km
 
-          // Create a line between the two points
           const line = turf.lineString([
             [row.Lng, row.Lat],
             [row.LONG, row.LAT],
           ]);
 
-          // Add the line to the map
-          L.geoJSON(line, {
+          // Create the line layer but don't add it to the map yet
+          const lineLayer = L.geoJSON(line, {
             style: {
               color: lineColor,
               weight: 3,
             },
-          }).addTo(map);
+          });
 
-          // Add markers for the department and service locations
-          L.marker([row.Lat, row.Lng],{ icon: buildingIcon })
-            .addTo(map)
-            .bindPopup(`<b>Department:</b> ${row.Agency_Name}`);
-
-          L.marker([row.LAT, row.LONG],{ icon: serviceIcon })
-            .addTo(map)
+          // Create service location marker
+          const serviceMarker = L.marker([row.LAT, row.LONG], { icon: serviceIcon })
             .bindPopup(`<b>Service Location:</b> ${row.Address}`);
+
+          // Store connections for this department
+          const deptKey = `${row.Lat},${row.Lng}`;
+          if (!newConnections[deptKey]) {
+            newConnections[deptKey] = [];
+          }
+          newConnections[deptKey].push(lineLayer, serviceMarker);
+
+          // Create department marker with hover events
+          const deptMarker = L.marker([row.Lat, row.Lng], { icon: buildingIcon })
+            .bindPopup(`<b>Department:</b> ${row.Agency_Name}`)
+            .on('mouseover', () => {
+              // Hide all other markers and lines
+              markers.forEach(m => m.remove());
+              Object.values(connections).flat().forEach(layer => map.removeLayer(layer));
+              
+              // Show only this department's connections
+              newConnections[deptKey].forEach(layer => map.addLayer(layer));
+              deptMarker.addTo(map);
+            })
+            .on('mouseout', () => {
+              // Show all markers and hide all lines
+              newConnections[deptKey].forEach(layer => {
+                if (layer instanceof L.GeoJSON) {
+                  map.removeLayer(layer);
+                }
+              });
+              markers.forEach(m => m.addTo(map));
+            });
+
+          newMarkers.push(deptMarker);
+          deptMarker.addTo(map);
         }
       });
+
+      setConnections(newConnections);
+      setMarkers(newMarkers);
     }
   }, [data, map]);
 
