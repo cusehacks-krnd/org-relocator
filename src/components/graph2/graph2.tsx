@@ -72,8 +72,8 @@ const Graph2Component = () => {
 
           // Define line color based on distance
           let lineColor = "#00FF00"; // Green for short distances
-          if (distance > 5) lineColor = "#FFA500"; // Orange for medium distances
-          if (distance > 10) lineColor = "#FF0000"; // Red for long distances
+          if (distance > 4) lineColor = "#FFA500"; // Orange for medium distances
+          if (distance > 6) lineColor = "#FF0000"; // Red for long distances
 
           // Create a line between the two points
           const line = turf.lineString([
