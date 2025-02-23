@@ -91,7 +91,7 @@ const Graph1Component = () => {
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Housing & Property Maintenance</h3>
                   <img src="/housing.png" alt="Housing & Property Maintenance" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
-                  <p style="margin: 0 0 5px;"><b>Department ID:</b> 9509</p>
+                  <p style="margin: 0 0 5px;"><b>Department Address:</b> 13209</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Oversees housing standards and property maintenance.</p>
                   <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
                 </div>
@@ -103,7 +103,7 @@ const Graph1Component = () => {
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Streets, Sidewalks & Transportation</h3>
                   <img src="/streets.png" alt="Streets, Sidewalks & Transportation" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
-                  <p style="margin: 0 0 5px;"><b>Department ID:</b> 8586</p>
+                  <p style="margin: 0 0 5px;"><b>Department Address:</b> 13286</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Maintains streets, sidewalks, and transportation infrastructure.</p>
                   <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
                 </div>
@@ -116,7 +116,7 @@ const Graph1Component = () => {
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Green Spaces, Trees & Public Utilities</h3>
                   <img src="/green.png" alt="Green Spaces, Trees & Public Utilities" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
-                  <p style="margin: 0 0 5px;"><b>Department ID:</b> 3196</p>
+                  <p style="margin: 0 0 5px;"><b>Department Address:</b> 13296</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Maintains green spaces, trees, and public utilities.</p>
                   <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
                 </div>
@@ -128,7 +128,7 @@ const Graph1Component = () => {
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Parking & Vehicles</h3>
                   <img src="/parking.png" alt="Parking & Vehicles" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
-                  <p style="margin: 0 0 5px;"><b>Department ID:</b> 1111</p>
+                  <p style="margin: 0 0 5px;"><b>Department Address:</b> 13211</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Manages parking and vehicle-related issues.</p>
                   <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
                 </div>
@@ -140,7 +140,7 @@ const Graph1Component = () => {
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Animals</h3>
                   <img src="/animals.png" alt="Animals" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
-                  <p style="margin: 0 0 5px;"><b>Department ID:</b> 1099</p>
+                  <p style="margin: 0 0 5px;"><b>Department Address:</b> 13299</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Handles animal control and welfare.</p>
                   <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
                 </div>
@@ -153,7 +153,7 @@ const Graph1Component = () => {
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Feedback to the City</h3>
                   <img src="/feedback.png" alt="Feedback to the City" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
-                  <p style="margin: 0 0 5px;"><b>Department ID:</b> 652</p>
+                  <p style="margin: 0 0 5px;"><b>Department Address:</b> 13652</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Handles feedback and suggestions for the city.</p>
                   <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
                 </div>
