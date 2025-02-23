@@ -9,6 +9,24 @@ import * as turf from "@turf/turf";
 
 const Graph2Component = () => {
   const [data, setData] = useState<any[]>([]);
+  const [map, setMap] = useState<L.Map | null>(null);
+
+  useEffect(() => {
+    // Initialize the map only once
+    const mapInstance = L.map("map").setView([43.0481, -76.1474], 13);
+    setMap(mapInstance);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "© OpenStreetMap contributors",
+    }).addTo(mapInstance);
+
+    // Cleanup function to remove the map when component unmounts
+    return () => {
+      if (mapInstance) {
+        mapInstance.remove();
+      }
+    };
+  }, []); // Empty dependency array means this runs once on mount
 
   useEffect(() => {
     // Load the CSV file
@@ -23,13 +41,13 @@ const Graph2Component = () => {
   }, []);
 
   useEffect(() => {
-    if (data.length > 0) {
-      // Initialize the map
-      const map = L.map("map").setView([43.0481, -76.1474], 13); // Syracuse coordinates
-
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "© OpenStreetMap contributors",
-      }).addTo(map);
+    if (data.length > 0 && map) {
+      // Clear existing markers and lines
+      map.eachLayer((layer) => {
+        if (layer instanceof L.Marker || layer instanceof L.GeoJSON) {
+          layer.remove();
+        }
+      });
 
       // Add markers and lines for each data point
       data.forEach((row) => {
@@ -70,12 +88,13 @@ const Graph2Component = () => {
         }
       });
     }
-  }, [data]);
+  }, [data, map]);
 
   return (
     <div className="flex justify-center w-full p-4">
-      <div className="w-3/4 border-2 border-white bg-white rounded-lg overflow-hidden p-4">
-        <h1>Department to Service Location Connections</h1>
+      <div className="w-3/4 border-2 border-white bg-white rounded-2xl overflow-hidden p-4">
+        <h1 className="text-2xl font-bold text-black mb-4">Service Location Distance Analysis</h1>
+        <h2 className="text-xl text-gray-600">Department to Service Location Connections</h2>
         <p>Lines connect departments to service locations. Line color depends on distance.</p>
         <div id="map" style={{ height: "500px", width: "100%" }}></div>
       </div>

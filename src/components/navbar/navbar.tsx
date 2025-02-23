@@ -12,10 +12,10 @@ const Navbar: React.FC = () => {
 
         {/* Navigation Links */}
         <div className="flex gap-8">
-          <Link href="/services" className="text-black hover:text-gray-600">
+          <Link href="/graph1" className="text-black hover:text-gray-600">
             PAGE 1
           </Link>
-          <Link href="/gallery" className="text-black hover:text-gray-600">
+          <Link href="/graph2" className="text-black hover:text-gray-600">
             PAGE 2
           </Link>
         </div>
