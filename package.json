@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@turf/turf": "^7.2.0",
     "leaflet": "^1.9.4",
     "next": "^15.1.7",
     "papaparse": "^5.5.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "turf": "^3.0.14"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

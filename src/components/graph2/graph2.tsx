@@ -1,5 +1,6 @@
 "use client"; // Required for client-side interactivity
 
+import "../globals.css";
 import { useEffect, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -11,7 +12,7 @@ export default function Graph2Component() {
 
   useEffect(() => {
     // Load the CSV file
-    Papa.parse("/city_skyline.csv", {
+    Papa.parse("/SYRCityline_Requests_(2021-Present).csv", {
       download: true,
       header: true,
       dynamicTyping: true,
