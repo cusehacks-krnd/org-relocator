@@ -35,15 +35,20 @@ const Home: React.FC = () => {
           {/* Second Card */}
           <div className="bg-white rounded-3xl p-8 shadow-lg">
             <div className="uppercase text-sm font-semibold text-gray-600 mb-4 tracking-wider">
-              DISTANCE &nbsp;ANALYSIS
+              OUR &nbsp;PRESENTATION
             </div>
             <h2 className="text-2xl font-bold mb-4 tracking-wide">
-              Analyze &nbsp;Department &nbsp;Locations
+              View &nbsp;Our &nbsp;Findings
             </h2>
             <p className="text-gray-600 mb-8">
-              Evaluate the efficiency of current department locations relative to service request patterns.
+              Learn about the interesting insights we gleaned from our interactive data visualizer. 
             </p>
-            <Link href="/graph2" className="block">
+            <Link 
+              href="https://sumailsyr-my.sharepoint.com/:p:/r/personal/dprestam_syr_edu/_layouts/15/doc2.aspx?sourcedoc=%7BFCEE29F6-E7A9-4A76-B4BA-10FCF9579C18%7D&file=Syracuse%20Pulse.pptx&action=edit&mobileredirect=true&wdOrigin=SEARCHENGINE.GOOGLE%2CAPPHOME-WEB.BANNER.UPLOAD&wdPreviousSession=b903d800-2725-42c4-a56c-34b0e5c397db&wdPreviousSessionSrc=AppHomeWeb&ct=1740332393561"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
               <button className="w-full border-2 border-black text-black py-3 rounded-full hover:bg-gray-100 transition">
                 View Analysis
               </button>

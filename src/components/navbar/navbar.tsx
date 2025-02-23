@@ -9,16 +9,6 @@ const Navbar: React.FC = () => {
         <Link href="/" className="text-2xl font-semibold text-[#d37354] tracking-[.25em]">
             CusePULSE 
         </Link>
-
-        {/* Navigation Links */}
-        <div className="flex gap-8">
-          <Link href="/graph1" className="font-bold text-black hover:text-gray-600 tracking-[.15em]">
-            GRAPH 1
-          </Link>
-          <Link href="/graph2" className="font-bold text-black hover:text-gray-600 tracking-[.15em]">
-            GRAPH 2
-          </Link>
-        </div>
       </div>
     </nav>
   );
