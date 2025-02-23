@@ -48,6 +48,12 @@ const Graph1Component = () => {
         }
       });
 
+      const buildingIcon = L.icon({
+        iconUrl: "/building-icon.png",
+        iconSize: [32, 32],
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32],
+      });
       // Add markers for each data point
       data.forEach((row) => {
         if (row.Lat && row.Lng) {
@@ -60,28 +66,31 @@ const Graph1Component = () => {
               popupContent = `
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Garbage, Recycling & Graffiti</h3>
-                  <p style="margin: 0 0 5px;"><b>Department ID:</b> 65640</p>
+                  <img src="/garbage_recycling.png" alt="Garbage, Recycling & Graffiti" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
+                  <p style="margin: 0 0 5px;"><b>Department Address:</b> 13206</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Handles garbage collection, recycling, and graffiti removal.</p>
-                  <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
+                  <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 640-3447</p>
                 </div>
               `;
               break;
 
-            case "Water & Sewage":
-              popupContent = `
-                <div style="font-family: Arial, sans-serif; color: #333;">
-                  <h3 style="margin: 0 0 10px; font-size: 16px;">Water & Sewage</h3>
-                  <p style="margin: 0 0 5px;"><b>Department ID:</b> 20451</p>
-                  <p style="margin: 0 0 5px;"><b>Description:</b> Manages water supply and sewage systems.</p>
-                  <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
-                </div>
-              `;
-              break;
+              case "Water & Sewage":
+                popupContent = `
+                  <div style="font-family: Arial, sans-serif; color: #333;">
+                    <h3 style="margin: 0 0 10px; font-size: 16px;">Water & Sewage</h3>
+                    <img src="/water-sewage.png" alt="Water & Sewage" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
+                    <p style="margin: 0 0 5px;"><b>Department Address:</b> 13210</p>
+                    <p style="margin: 0 0 5px;"><b>Description:</b> Manages water supply and sewage systems.</p>
+                    <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-8360</p>
+                  </div>
+                `;
+                break;
 
             case "Housing & Property Maintenance":
               popupContent = `
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Housing & Property Maintenance</h3>
+                  <img src="/housing.png" alt="Housing & Property Maintenance" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
                   <p style="margin: 0 0 5px;"><b>Department ID:</b> 9509</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Oversees housing standards and property maintenance.</p>
                   <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
@@ -93,6 +102,7 @@ const Graph1Component = () => {
               popupContent = `
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Streets, Sidewalks & Transportation</h3>
+                  <img src="/streets.png" alt="Streets, Sidewalks & Transportation" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
                   <p style="margin: 0 0 5px;"><b>Department ID:</b> 8586</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Maintains streets, sidewalks, and transportation infrastructure.</p>
                   <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
@@ -100,21 +110,12 @@ const Graph1Component = () => {
               `;
               break;
 
-            case "Sanitation Carts":
-              popupContent = `
-                <div style="font-family: Arial, sans-serif; color: #333;">
-                  <h3 style="margin: 0 0 10px; font-size: 16px;">Sanitation Carts</h3>
-                  <p style="margin: 0 0 5px;"><b>Department ID:</b> 4662</p>
-                  <p style="margin: 0 0 5px;"><b>Description:</b> Manages sanitation carts and waste collection.</p>
-                  <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
-                </div>
-              `;
-              break;
 
             case "Green Spaces, Trees & Public Utilities":
               popupContent = `
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Green Spaces, Trees & Public Utilities</h3>
+                  <img src="/green.png" alt="Green Spaces, Trees & Public Utilities" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
                   <p style="margin: 0 0 5px;"><b>Department ID:</b> 3196</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Maintains green spaces, trees, and public utilities.</p>
                   <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
@@ -126,6 +127,7 @@ const Graph1Component = () => {
               popupContent = `
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Parking & Vehicles</h3>
+                  <img src="/parking.png" alt="Parking & Vehicles" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
                   <p style="margin: 0 0 5px;"><b>Department ID:</b> 1111</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Manages parking and vehicle-related issues.</p>
                   <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
@@ -137,6 +139,7 @@ const Graph1Component = () => {
               popupContent = `
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Animals</h3>
+                  <img src="/animals.png" alt="Animals" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
                   <p style="margin: 0 0 5px;"><b>Department ID:</b> 1099</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Handles animal control and welfare.</p>
                   <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
@@ -144,21 +147,12 @@ const Graph1Component = () => {
               `;
               break;
 
-            case "Sanitation":
-              popupContent = `
-                <div style="font-family: Arial, sans-serif; color: #333;">
-                  <h3 style="margin: 0 0 10px; font-size: 16px;">Sanitation</h3>
-                  <p style="margin: 0 0 5px;"><b>Department ID:</b> 741</p>
-                  <p style="margin: 0 0 5px;"><b>Description:</b> Oversees sanitation and waste management.</p>
-                  <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
-                </div>
-              `;
-              break;
 
             case "Feedback to the City":
               popupContent = `
                 <div style="font-family: Arial, sans-serif; color: #333;">
                   <h3 style="margin: 0 0 10px; font-size: 16px;">Feedback to the City</h3>
+                  <img src="/feedback.png" alt="Feedback to the City" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
                   <p style="margin: 0 0 5px;"><b>Department ID:</b> 652</p>
                   <p style="margin: 0 0 5px;"><b>Description:</b> Handles feedback and suggestions for the city.</p>
                   <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
@@ -166,44 +160,10 @@ const Graph1Component = () => {
               `;
               break;
 
-            case "Streets & Transportation":
-              popupContent = `
-                <div style="font-family: Arial, sans-serif; color: #333;">
-                  <h3 style="margin: 0 0 10px; font-size: 16px;">Streets & Transportation</h3>
-                  <p style="margin: 0 0 5px;"><b>Department ID:</b> 484</p>
-                  <p style="margin: 0 0 5px;"><b>Description:</b> Manages streets and transportation systems.</p>
-                  <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
-                </div>
-              `;
-              break;
-
-            case "Health, Safety & Social Services":
-              popupContent = `
-                <div style="font-family: Arial, sans-serif; color: #333;">
-                  <h3 style="margin: 0 0 10px; font-size: 16px;">Health, Safety & Social Services</h3>
-                  <p style="margin: 0 0 5px;"><b>Department ID:</b> 103</p>
-                  <p style="margin: 0 0 5px;"><b>Description:</b> Provides health, safety, and social services.</p>
-                  <p style="margin: 0 0 5px;"><b>Contact:</b> (315) 448-2489</p>
-                </div>
-              `;
-              break;
-
-            default:
-              popupContent = `
-                <div style="font-family: Arial, sans-serif; color: #333;">
-                  <h3 style="margin: 0 0 10px; font-size: 16px;">${row.Agency_Name}</h3>
-                  <p style="margin: 0 0 5px;"><b>Request Type:</b> ${row.Request_type}</p>
-                  <p style="margin: 0 0 5px;"><b>Address:</b> ${row.Address}</p>
-                  <p style="margin: 0 0 5px;"><b>Description:</b> ${row.Description}</p>
-                  <p style="margin: 0 0 5px;"><b>Created At:</b> ${row.Created_at_local}</p>
-                  <p style="margin: 0;"><b>Status:</b> ${row.Closed_at_local ? "Closed" : "Open"}</p>
-                </div>
-              `;
-              break;
           }
 
           // Add the marker with the popup content
-          L.marker([row.Lat, row.Lng])
+          L.marker([row.Lat, row.Lng], { icon: buildingIcon })
             .addTo(map)
             .bindPopup(popupContent);
         }
