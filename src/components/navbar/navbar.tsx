@@ -3,20 +3,20 @@ import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="w-full px-6 py-4 border-b-2 border-gray-700 bg-[#eae6df]">
+    <nav className="w-full px-6 py-4 border-b-2 border-[#eae6df] bg-[#eae6df]">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo/Brand */}
-        <Link href="/" className="text-xl font-semibold text-[#d37354]">
+        <Link href="/" className="text-2xl font-semibold text-[#d37354]">
           CUSEHACKS
         </Link>
 
         {/* Navigation Links */}
         <div className="flex gap-8">
-          <Link href="/graph1" className="text-black hover:text-gray-600">
-            PAGE 1
+          <Link href="/graph1" className="font-bold text-black hover:text-gray-600">
+            GRAPH 1
           </Link>
-          <Link href="/graph2" className="text-black hover:text-gray-600">
-            PAGE 2
+          <Link href="/graph2" className="font-bold text-black hover:text-gray-600">
+            GRAPH 2
           </Link>
         </div>
       </div>
