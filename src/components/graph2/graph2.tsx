@@ -48,6 +48,18 @@ const Graph2Component = () => {
           layer.remove();
         }
       });
+      const buildingIcon = L.icon({
+        iconUrl: "/building-icon.png", 
+        iconSize: [32, 32], 
+        iconAnchor: [16, 32], 
+        popupAnchor: [0, -32], 
+      });
+      const serviceIcon = L.icon({
+        iconUrl: "/service-icon.png", 
+        iconSize: [32, 32], 
+        iconAnchor: [16, 32], 
+        popupAnchor: [0, -32], 
+      });
 
       // Add markers and lines for each data point
       data.forEach((row) => {
@@ -78,11 +90,11 @@ const Graph2Component = () => {
           }).addTo(map);
 
           // Add markers for the department and service locations
-          L.marker([row.Lat, row.Lng])
+          L.marker([row.Lat, row.Lng],{ icon: buildingIcon })
             .addTo(map)
             .bindPopup(`<b>Department:</b> ${row.Agency_Name}`);
 
-          L.marker([row.LAT, row.LONG])
+          L.marker([row.LAT, row.LONG],{ icon: serviceIcon })
             .addTo(map)
             .bindPopup(`<b>Service Location:</b> ${row.Address}`);
         }
