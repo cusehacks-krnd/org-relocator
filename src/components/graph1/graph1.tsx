@@ -6,7 +6,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import Papa from "papaparse";
 
-export default function Graph1Component() {
+const Graph1Component = () => {
   const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
@@ -194,10 +194,14 @@ export default function Graph1Component() {
   }, [data]);
 
   return (
-    <div>
-      <h1>Syracuse Service Requests Map</h1>
-      <p>Click on a marker to see details about the department.</p>
-      <div id="map" style={{ height: "500px", width: "100%" }}></div>
+    <div className="flex justify-center w-full p-4">
+      <div className="w-3/4 border-2 border-white bg-white rounded-lg overflow-hidden p-4">
+        <h1>Syracuse Service Requests Map</h1>
+        <p>Click on a marker to see details about the department.</p>
+        <div id="map" style={{ height: "500px", width: "100%" }}></div>
+      </div>
     </div>
   );
-}
+};
+
+export default Graph1Component;

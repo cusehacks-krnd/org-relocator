@@ -7,7 +7,7 @@ import "leaflet/dist/leaflet.css";
 import Papa from "papaparse";
 import * as turf from "@turf/turf";
 
-export default function Graph2Component() {
+const Graph2Component = () => {
   const [data, setData] = useState<any[]>([]);
 
   useEffect(() => {
@@ -73,10 +73,14 @@ export default function Graph2Component() {
   }, [data]);
 
   return (
-    <div>
-      <h1>Department to Service Location Connections</h1>
-      <p>Lines connect departments to service locations. Line color depends on distance.</p>
-      <div id="map" style={{ height: "500px", width: "100%" }}></div>
+    <div className="flex justify-center w-full p-4">
+      <div className="w-3/4 border-2 border-white bg-white rounded-lg overflow-hidden p-4">
+        <h1>Department to Service Location Connections</h1>
+        <p>Lines connect departments to service locations. Line color depends on distance.</p>
+        <div id="map" style={{ height: "500px", width: "100%" }}></div>
+      </div>
     </div>
   );
-}
+};
+
+export default Graph2Component;
